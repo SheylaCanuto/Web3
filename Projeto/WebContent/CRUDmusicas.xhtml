@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+<ui:composition template="/templates/template.xhtml"> 
+	<ui:define name="tituloJanela">Cadastro de Musicas</ui:define>
+	<ui:define name="conteudo">
+		<h:form id="form">
+			<h:messages />
+			<h:panelGroup rendered="#{!controleCRUDajax.editando}">
+			<h:dataTable value="#{controleCRUDajax.lista}" var="obj" id="lista" frame="box" rules="all" cellpadding="3">
+				<f:facet name="header">
+					<h:commandButton action="#{controleCRUDajax.novo()}" value="Adicionar">			
+						<f:ajax execute="@form" render="@form"/>
+					</h:commandButton>
+				</f:facet>					
+					<h:column>
+						<f:facet name="header">ID</f:facet>
+						<h:outputText value="#{obj.id}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">NOME MUSICA</f:facet>
+						<h:outputText value="#{obj.nome}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">ARTISTA</f:facet>
+						<h:outputText value="#{obj.artista}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">ALTERAR</f:facet>
+						<h:commandLink action="#{controleCRUDajax.alterar(obj)}" value="Alterar">
+							<f:ajax render="@form" execute="@form"/>
+						</h:commandLink>
+					</h:column>
+					<h:column>
+						<f:facet name="header">EXCLUIR</f:facet>
+						<h:commandLink action="#{controleCRUDajax.excluir(obj)}" value="Excluir" onclick="if (!confirm('Confirma a exclusão da pessoa?')) return false">
+							<f:ajax execute = "@form" render="@form"/>
+						</h:commandLink>
+					</h:column>	
+			</h:dataTable>
+			
+			</h:panelGroup>
+			<h:panelGroup rendered="#{controleCRUDajax.editando}">
+				<h:panelGrid columns="2">
+					<f:facet name="header">Edição de pessoas</f:facet>
+					
+					<h:outputLabel value="ID" />
+					<h:inputText value="#{controleCRUDajax.objeto.id}" readonly="true"/>
+					<h:outputLabel value="Nome" />
+					<h:inputText value="#{controleCRUDajax.objeto.nome}" maxlength="40" size="40" required="true" requiredMessage="O nome precisa ser preenchido"/>
+					<h:message for="nome" style="color: red"/>
+					<h:outputLabel value="Artista" />
+					<h:inputText value="#{controleCRUDajax.objeto.artista}" required="true" requiredMessage="O nome do artista precisa ser preenchido"/>
+					<h:message for="nomeArtista" style="color: red"/>
+					
+					<f:facet name="footer">
+						<div align="center">
+							<h:commandButton action="#{controleCRUDajax.cancelar()}" value="Cancelar" immediate="true">
+								<f:ajax execute="@form" render="@form"/>
+							</h:commandButton>
+							<h:commandButton action="#{controleCRUDajax.salvar()}" value="Salvar">
+								<f:ajax execute="@form" render="@form"/>
+							</h:commandButton>
+						</div>
+					</f:facet>			
+				</h:panelGrid>
+			</h:panelGroup>
+		</h:form>
+	</ui:define>
+</ui:composition>
+<h:head></h:head> 
+<h:body> 
+
+</h:body> 
+</html>

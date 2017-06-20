@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+<ui:composition template="/templates/template.xhtml"> 
+	<ui:define name="tituloJanela">Cadastro de Musicas</ui:define>
+	<ui:define name="conteudo">
+		<h:form id="form">
+			<h:messages />
+			<h:panelGroup>
+			<h:dataTable value="#{controleCRUDajax.lista}" var="obj" id="lista" frame="box" rules="all" cellpadding="3">
+				
+					<h:column>
+						<f:facet name="header">ID</f:facet>
+						<h:outputText value="#{obj.id}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">NOME MUSICA</f:facet>
+						<h:outputText value="#{obj.nome}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">ARTISTA</f:facet>
+						<h:outputText value="#{obj.artista}" />
+					</h:column>
+					
+			</h:dataTable>
+			
+			</h:panelGroup>
+			
+		</h:form>
+	</ui:define>
+</ui:composition>
+<h:head></h:head> 
+<h:body> 
+
+</h:body> 
+</html>

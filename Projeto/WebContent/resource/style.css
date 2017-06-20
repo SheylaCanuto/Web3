@@ -1,0 +1,9 @@
+@CHARSET "ISO-8859-1";
+
+
+#menu{
+	border: thin solid lightGray;
+	padding: 5px;
+	width: 150px;
+	background: #eeeeee;
+}

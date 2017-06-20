@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">  
+      
+            <ui:insert name="menu">
+              
+              <h:form>
+              <h:panelGrid columns="1">
+                <h:commandLink value="Inicio" action="/paginas/home.xhtml"/>
+                <h:commandLink value="Listar Músicas" action="#{controleCRUDajax.listar()}"/>
+                <h:commandLink action="#{controleCRUDajax.listar()}" value="CRUD Musicas" />
+                <h:commandLink value="Buscar Musica" action="/paginas/listaMusicas.xhtml"/>
+              </h:panelGrid>
+              </h:form>
+              
+            </ui:insert>
+            
+ </html>

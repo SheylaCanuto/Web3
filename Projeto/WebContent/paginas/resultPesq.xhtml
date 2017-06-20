@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<ui:composition template="/templates/template.xhtml">
+	<ui:define name="tituloPagina">Tabelas com estilos CSS</ui:define>
+	<ui:define name="conteudo">
+	 <h3>Resultado da pesquisa</h3>
+		<h:dataTable  var="obj" bgcolor="white" border="1" >
+			<h:column>Titulo</h:column>
+			<h:column>Artista</h:column>
+			<h:column>Album</h:column>
+			<h:column>Ano</h:column>
+		</h:dataTable>
+		<h:commandButton value="Adicionar" action="adicionar"/>
+		<h:commandButton value="Remover" action="del"/>
+		<h:commandButton value="Editar" action="edit"/>
+		</ui:define>
+</ui:composition>
+</html>
