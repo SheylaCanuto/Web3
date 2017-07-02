@@ -8,10 +8,10 @@
 	<ui:define name="conteudo">
 		<h:form id="form">
 			<h:messages />
-			<h:panelGroup rendered="#{!controleCRUDajax.editando}">
-			<h:dataTable value="#{controleCRUDajax.lista}" var="obj" id="lista" frame="box" rules="all" cellpadding="3">
+			<h:panelGroup rendered="#{!crudAjax.editando}">
+			<h:dataTable value="#{crudAjax.lista}" var="obj" id="lista" frame="box" rules="all" cellpadding="3">
 				<f:facet name="header">
-					<h:commandButton action="#{controleCRUDajax.novo()}" value="Adicionar">			
+					<h:commandButton action="#{crudAjax.novo()}" value="Adicionar">			
 						<f:ajax execute="@form" render="@form"/>
 					</h:commandButton>
 				</f:facet>					
@@ -28,39 +28,46 @@
 						<h:outputText value="#{obj.artista}" />
 					</h:column>
 					<h:column>
+						<f:facet name="header">ALBUM</f:facet>
+						<h:outputText value="#{obj.album}" />
+					</h:column>
+					<h:column>
 						<f:facet name="header">ALTERAR</f:facet>
-						<h:commandLink action="#{controleCRUDajax.alterar(obj)}" value="Alterar">
+						<h:commandLink action="#{crudAjax.alterar(obj)}" value="Alterar">
 							<f:ajax render="@form" execute="@form"/>
 						</h:commandLink>
 					</h:column>
 					<h:column>
 						<f:facet name="header">EXCLUIR</f:facet>
-						<h:commandLink action="#{controleCRUDajax.excluir(obj)}" value="Excluir" onclick="if (!confirm('Confirma a exclusão da pessoa?')) return false">
+						<h:commandLink action="#{crudAjax.excluir(obj)}" value="Excluir" onclick="if (!confirm('Confirma a exclusão da pessoa?')) return false">
 							<f:ajax execute = "@form" render="@form"/>
 						</h:commandLink>
 					</h:column>	
 			</h:dataTable>
 			
 			</h:panelGroup>
-			<h:panelGroup rendered="#{controleCRUDajax.editando}">
+			<h:panelGroup rendered="#{crudAjax.editando}">
 				<h:panelGrid columns="2">
 					<f:facet name="header">Edição de pessoas</f:facet>
 					
 					<h:outputLabel value="ID" />
-					<h:inputText value="#{controleCRUDajax.objeto.id}" readonly="true"/>
+					<h:inputText value="#{crudAjax.objeto.id}" readonly="true"/>
 					<h:outputLabel value="Nome" />
 					<h:inputText value="#{controleCRUDajax.objeto.nome}" maxlength="40" size="40" required="true" requiredMessage="O nome precisa ser preenchido"/>
 					<h:message for="nome" style="color: red"/>
 					<h:outputLabel value="Artista" />
-					<h:inputText value="#{controleCRUDajax.objeto.artista}" required="true" requiredMessage="O nome do artista precisa ser preenchido"/>
+					<h:inputText value="#{crudAjax.objeto.artista}" required="true" requiredMessage="O nome do artista precisa ser preenchido"/>
+					<h:message for="nomeArtista" style="color: red"/>
+					<h:outputLabel value="Album" />
+					<h:inputText value="#{crudAjax.objeto.album}" required="true" requiredMessage="O nome do artista precisa ser preenchido"/>
 					<h:message for="nomeArtista" style="color: red"/>
 					
 					<f:facet name="footer">
 						<div align="center">
-							<h:commandButton action="#{controleCRUDajax.cancelar()}" value="Cancelar" immediate="true">
+							<h:commandButton action="#{crudAjax.cancelar()}" value="Cancelar" immediate="true">
 								<f:ajax execute="@form" render="@form"/>
 							</h:commandButton>
-							<h:commandButton action="#{controleCRUDajax.salvar()}" value="Salvar">
+							<h:commandButton action="#{crudAjax.salvar()}" value="Salvar">
 								<f:ajax execute="@form" render="@form"/>
 							</h:commandButton>
 						</div>

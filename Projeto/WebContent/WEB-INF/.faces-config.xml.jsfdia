@@ -1,2 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<PROCESS model-entity="JSFProcess"/>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#menu.xhtml" PATH="/menu.xhtml"
+  SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#menu.xhtml:0" NAME="item" PATH="/menu.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="home::#home.xhtml" NAME="output"
+    PATH="/home.xhtml" TARGET="rules:#home.xhtml" TITLE="home" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="listaMusicas::#listaMusicas.xhtml"
+    NAME="output1" PATH="/listaMusicas.xhtml"
+    TARGET="rules:#listaMusicas.xhtml" TITLE="listaMusicas" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="CRUDmusicas::#CRUDmusicas.xhtml"
+    NAME="output2" PATH="/CRUDmusicas.xhtml"
+    TARGET="rules:#CRUDmusicas.xhtml" TITLE="CRUDmusicas" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#listaMusicas.xhtml"
+  PATH="/listaMusicas.xhtml" SHAPE="256,177,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#home.xhtml" PATH="/home.xhtml"
+  SHAPE="256,33,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#CRUDmusicas.xhtml" PATH="/CRUDmusicas.xhtml"
+  SHAPE="272,321,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>

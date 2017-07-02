@@ -1,34 +1,38 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
-  <h:head>
-    <title>Biblioteca_de_músicas</title>
-    
-  </h:head>
-  <h:body>
-    <h:form id="form">
-      <table width="100%">
-        <tr>
-          <td colspan="2" align="center">
-		<ui:include src="/templates/cabecalho.xhtml"/>
-          </td>
-        </tr>
-        <tr>
-         <td width="200px" valign="top">
-         <h2>Menu</h2>
-		<ui:include src="/templates/menu.xhtml"/>
-          </td>
-          <td>
-          <div>
-			<ui:insert name="conteudo">
-			</ui:insert>
-          </div>  
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+<h:head>
+	<title><ui:insert name="Biblioteca_de_musicas"/></title>
+	<h:outputStylesheet library="css" name="estilos.css"/>
+</h:head> 
+<h:body> 
+<table width="100%">
+<tr>
+<td colspan="2" align="center">
+	<div id="cabecalho">
+	<ui:include src="/templates/cabecalho.xhtml"/>
+	</div>
+</td>
+</tr>
+<tr>
+<td>
+<h2>Menu</h2>
+	<div id="barraEsquerda">
+		<ui:include src="/templates/menu.xhtml" />
+	</div>
+</td>
+
+ <td>
+  <div>
+	<ui:insert name="conteudo"/>
+   </div>  
             
-          </td>
-        </tr>
-      </table>
-    </h:form>
-  </h:body>
+   </td>
+</tr>
+
+</table>
+
+</h:body> 
 </html>

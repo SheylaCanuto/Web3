@@ -4,6 +4,21 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
     version="2.2">
+     <navigation-rule>
+   <from-view-id>/menu.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>home</from-outcome>
+   <to-view-id>/home.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>listaMusicas</from-outcome>
+   <to-view-id>/listaMusicas.xhtml</to-view-id>
+  </navigation-case>
+    <navigation-case>
+   <from-outcome>CRUDmusicas</from-outcome>
+   <to-view-id>/CRUDmusicas.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
     
     <application>
     	<locale-config>
